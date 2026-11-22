@@ -1,7 +1,8 @@
 {
-  "version": 8,
+  "version": 9,
   "name": "pinchflat",
   "nixpkgs": "nixos-unstable",
+  "icon": "pinchflat",
   "routes": [{ "host": "pinchflat", "port": 8945 }],
   "variables": [
     {
@@ -29,5 +30,8 @@
   "health": {
     "units": ["pinchflat.service"],
     "http": { "port": 8945, "path": "/healthcheck" }
-  }
+  },
+  "services": [
+    { "unit": "pinchflat.service", "icon": "pinchflat" }
+  ]
 }

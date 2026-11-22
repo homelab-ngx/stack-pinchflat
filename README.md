@@ -55,7 +55,7 @@ An update is kept when all of this holds, and rolled back when it does not.
 - `pinchflat.service` is active.
 - Port 8945 answers at `/healthcheck`.
 
-Manifest version 8, built with nixpkgs `nixos-unstable`. Runs on [homelab-ngx](https://github.com/homelab-ngx/homelab-ngx).
+Manifest version 9, built with nixpkgs `nixos-unstable`. Runs on [homelab-ngx](https://github.com/homelab-ngx/homelab-ngx).
 
 <!-- manifest:end -->
 
