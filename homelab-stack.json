@@ -1,0 +1,33 @@
+{
+  "version": 8,
+  "name": "pinchflat",
+  "nixpkgs": "nixos-unstable",
+  "routes": [{ "host": "pinchflat", "port": 8945 }],
+  "variables": [
+    {
+      "name": "YOUTUBE_DIR",
+      "kind": "path",
+      "description": "Where Pinchflat saves the videos it downloads. Its group becomes the stack's media group, which Pinchflat writes as.",
+      "required": true,
+      "mount": "/pool/media/youtube",
+      "group": "media"
+    }
+  ],
+  "backup": {
+    "folders": [
+      {
+        "label": "Pinchflat settings",
+        "path": "/var/lib/pinchflat",
+        "exclude": [
+          { "pattern": "/tmp/**", "reason": "Downloads in progress." },
+          { "pattern": "/logs/**", "reason": "Log files." },
+          { "pattern": "/metadata/**", "reason": "Video thumbnails and descriptions. Pinchflat downloads them again." }
+        ]
+      }
+    ]
+  },
+  "health": {
+    "units": ["pinchflat.service"],
+    "http": { "port": 8945, "path": "/healthcheck" }
+  }
+}
